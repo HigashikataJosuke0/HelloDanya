@@ -157,11 +157,11 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th> ID</th>
                                             <th>Username</th>
                                             <th>Surname</th>
                                             <th>Salary</th>
-                                            <th>Roles</th>
+                                            <th> Roles</th>
                                         </tr>
                                         </thead>
                                         <tbody id="userPanelBody">
@@ -187,14 +187,13 @@
                 </div>
                 <div class="modal-body" style="padding-left: 120px; padding-right: 120px;">
                     <div class="form-group text-center">
-                        <label for="EditId" class="font-weight-bold">ID</label>
-                        <input class="form-control form-control-sm" id="EditId" name="id" readonly th:value="*{id}"
+                        <label for="id" class="font-weight-bold">ID</label>
+                        <input class="form-control form-control-sm" id="id" name="id" readonly th:value="*{id}"
                                type="text">
                     </div>
                     <div class="form-group text-center">
-                        <label for="username1" class="font-weight-bold">Username</label>
-                        <input class="form-control form-control-sm" id="username1" name="username"
-                               th:value="*{username}"
+                        <label for="email" class="font-weight-bold">Username</label>
+                        <input class="form-control form-control-sm" id="email" name="username" th:value="*{username}"
                                type="text">
                     </div>
                     <div class="form-group text-center">
@@ -210,8 +209,12 @@
                                type="text">
                     </div>
                     <div class="form-group text-center">
-                        <label for="editRolesUSer" class="font-weight-bold">Role</label>
-                        <select class="form-control" name="roles" id="editRolesUSer" size="2" multiple>
+                        <label for="password" class="font-weight-bold">Password</label>
+                        <input class="form-control form-control-sm" id="password" name="password" type="password">
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="editRolesUser" class="font-weight-bold">Role</label>
+                        <select class="form-control" name="roles" id="editRolesUser" size="2" multiple required>
                         </select>
                     </div>
                 </div>
@@ -219,7 +222,9 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="editFormCloseButton">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary"> Edit</button>
+                    <button type="submit" class="btn btn-primary">
+                        Edit
+                    </button>
                 </div>
             </form>
         </div>
@@ -244,8 +249,7 @@
                     </div>
                     <div class="form-group text-center">
                         <label for="username" class="font-weight-bold">Username</label>
-                        <input class="form-control form-control-sm" id="username" name="username"
-                               th:value="*{username}"
+                        <input class="form-control form-control-sm" id="username" name="username" readonly th:value="*{username}"
                                type="text">
                     </div>
                     <div class="form-group text-center">
@@ -262,7 +266,7 @@
                     </div>
                     <div class="form-group text-center">
                         <label for="deleteRolesUser" class="font-weight-bold">Role</label>
-                        <select class="form-control" name="roles" id="deleteRolesUser" size="2" multiple>
+                        <select readonly class="form-control" name="roles" id="deleteRolesUser" size="2" multiple>
                         </select>
                     </div>
                 </div>

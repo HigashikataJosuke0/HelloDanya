@@ -34,11 +34,8 @@ public class UserDetService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUSerName(username).get();
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                mapRolesAuth(user.getRoles()));
+                user.getAuthorities());
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesAuth(Collection<Role> roles) {
-        return roles.stream().map(r -> new SimpleGrantedAuthority(r.getUsername())).collect(Collectors.toList());
-    }
 
 }

@@ -65,9 +65,9 @@ async function newUser() {
             },
             body: JSON.stringify({
                 username: formAddNewUser.username.value,
+                password: formAddNewUser.password.value,
                 surname: formAddNewUser.surname.value,
                 salary: formAddNewUser.salary.value,
-                password: formAddNewUser.password.value,
                 roles: rolesNewUser
             })
         }).then(() => {
@@ -159,7 +159,7 @@ function editCurrentUser() {
         for (let i = 0; i < editForm.roles.options.length; i++) {
             if (editForm.roles.options[i].selected) editUserRoles.push({
                 id: editForm.roles.options[i].value,
-                username: editForm.roles.options[i].username
+                name: editForm.roles.options[i].username
             })
         }
 
@@ -171,9 +171,9 @@ function editCurrentUser() {
             body: JSON.stringify({
                 id: editForm.id.value,
                 username: editForm.username.value,
+                password: editForm.password.value,
                 surname: editForm.surname.value,
                 salary: editForm.salary.value,
-                password: editForm.password.value,
                 roles: editUserRoles
             })
         }).then(() => {

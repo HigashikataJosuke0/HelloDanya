@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
+import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserServiceFind;
 
@@ -21,11 +22,13 @@ public class AdminController {
 
     private final UserServiceFind userServiceFind;
     private final RoleService roleService;
+    private final UserRepository userRepository;
 
     @Autowired
-    public AdminController(UserServiceFind userServiceFind, RoleService roleService) {
+    public AdminController(UserServiceFind userServiceFind, RoleService roleService, UserRepository userRepository) {
         this.userServiceFind = userServiceFind;
         this.roleService = roleService;
+        this.userRepository = userRepository;
     }
 
 

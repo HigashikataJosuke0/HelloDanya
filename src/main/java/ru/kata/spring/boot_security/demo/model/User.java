@@ -98,6 +98,19 @@ public class User implements UserDetails {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && salary == user.salary && Objects.equals(username, user.username) && Objects.equals(surname, user.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, surname, salary);
+    }
+
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream().map(r->new SimpleGrantedAuthority(r.getAuthority())).collect(Collectors.toList());
     }

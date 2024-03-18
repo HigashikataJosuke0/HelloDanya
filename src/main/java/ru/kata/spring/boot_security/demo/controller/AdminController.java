@@ -22,14 +22,14 @@ public class AdminController {
 
     private final UserServiceFind userServiceFind;
     private final RoleService roleService;
-    private final UserRepository userRepository;
+
 
     @Autowired
-    public AdminController(UserServiceFind userServiceFind, RoleService roleService, UserRepository userRepository) {
+    public AdminController(UserServiceFind userServiceFind, RoleService roleService) {
         this.userServiceFind = userServiceFind;
         this.roleService = roleService;
-        this.userRepository = userRepository;
     }
+
 
 
     @GetMapping
@@ -65,5 +65,7 @@ public class AdminController {
     public List<Role> getAllRoles() {
         return roleService.findAll();
     }
+
+
 
 }
